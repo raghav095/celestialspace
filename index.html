@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Celestial Odyssey</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Include Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Three.js for 3D rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <h1>Celestial Odyssey</h1>
+      </div>
+      <div class="nav-center">
+        <a href="#solarSystem" class="nav-link">Solar System</a>
+        <a href="#apodSection" class="nav-link">APOD</a>
+        <a href="#issSection" class="nav-link">ISS Tracker</a>
+        <a href="#neoSection" class="nav-link">NEO</a>
+        <a href="#spacexSection" class="nav-link">SpaceX Launches</a>
+      </div>
+      <div class="nav-right">
+        <!-- A simple search box for APOD by date -->
+        <input type="text" id="apodDate" placeholder="YYYY-MM-DD" />
+        <button id="apodSearchBtn">Search APOD</button>
+      </div>
+    </nav>
+
+    <!-- Fullscreen Starfield Background (rendered by Three.js) -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Main Content Container -->
+    <main id="main-content">
+      <!-- Section 1: 3D Solar System Explorer -->
+      <section id="solarSystem" class="section">
+        <h2>Explore the Solar System</h2>
+        <div id="solarDisplay" class="content-box">
+          <!-- The interactive 3D solar system will be rendered here -->
+          <p>Loading Solar System...</p>
+        </div>
+      </section>
+
+      <!-- Section 2: Astronomy Picture of the Day (APOD) -->
+      <section id="apodSection" class="section">
+        <h2>Astronomy Picture of the Day</h2>
+        <div id="apodDisplay" class="content-box">Loading APOD...</div>
+      </section>
+
+      <!-- Section 3: ISS Tracker -->
+      <section id="issSection" class="section">
+        <h2>ISS Tracker</h2>
+        <div id="issData" class="content-box">Loading ISS data...</div>
+      </section>
+
+      <!-- Section 4: Near-Earth Objects (NEO) -->
+      <section id="neoSection" class="section">
+        <h2>Near-Earth Objects</h2>
+        <div id="neoData" class="content-box">Loading NEO data...</div>
+      </section>
+
+      <!-- Section 5: SpaceX Launches -->
+      <section id="spacexSection" class="section">
+        <h2>Upcoming SpaceX Launches</h2>
+        <div id="spacexData" class="content-box">Loading SpaceX launch data...</div>
+      </section>
+
+      <!-- Section 6: Sample Chart Visualization -->
+      <section id="chartSection" class="section">
+        <h2>NEO Count Chart</h2>
+        <canvas id="neoChart"></canvas>
+      </section>
+    </main>
+
+    <!-- Modal for Detailed Information (e.g. planet or APOD details) -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="modalClose" class="close">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
