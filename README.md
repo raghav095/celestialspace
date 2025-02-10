@@ -39,9 +39,7 @@ Space Explorer is an interactive web application that brings space exploration t
    ```
 5. Open `index.html` in a browser (if running without a server).
 
-## 📷 Screenshots
-![Screenshot of the ISS Tracker](https://via.placeholder.com/800x400)
-![Screenshot of Solar System Visualization](https://via.placeholder.com/800x400)
+
 
 
 
