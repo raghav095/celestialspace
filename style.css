@@ -1,156 +1,241 @@
-/* Import futuristic font */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+:root {
+  --space-black: #0a0a1a;
+  --neon-blue: #00f3ff;
+  --star-yellow: #ffe600;
+  --deep-space: #000010;
+  --space-purple: #4a00e0;
+  --danger-red: #ff4655;
+}
 
-/* Global Styles */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
+
 body {
   font-family: 'Orbitron', sans-serif;
-  background-color: #000;
-  color: #fff;
+  background: var(--deep-space);
+  color: white;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #1a1a2e;
-  padding: 10px 20px;
+#particles-js {
   position: fixed;
   width: 100%;
-  z-index: 10;
-}
-.nav-left h1 {
-  font-size: 1.8rem;
-  color: #00f3ff;
-}
-.nav-center .nav-link {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #00f3ff;
-  font-weight: bold;
-}
-.nav-right input {
-  padding: 8px;
-  width: 180px;
-  border: none;
-  border-radius: 5px;
-}
-.nav-right button {
-  padding: 8px 12px;
-  margin-left: 10px;
-  border: none;
-  background: #00f3ff;
-  color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Starfield Background */
-#starfield {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
 }
 
-/* Main Content */
-main {
-  padding: 100px 20px 20px; /* space for fixed navbar */
-}
-
-/* Section Styles */
-.section {
-  background: rgba(0, 0, 30, 0.85);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 95%;
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
-}
-.section h2 {
-  margin-bottom: 15px;
-  color: #00f3ff;
-}
-.content-box {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  min-height: 150px;
-}
-
-/* Horizontal Scroll for any carousel section (if needed) */
-.horizontal-scroll {
+.cosmic-nav {
   display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px 0;
-}
-.horizontal-scroll > div {
-  flex: 0 0 auto;
-  background: #111;
-  padding: 10px;
-  border-radius: 8px;
-  width: 250px;
-  text-align: center;
-}
-.horizontal-scroll img {
-  max-width: 100%;
-  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--neon-blue);
 }
 
-/* Modal Styles */
-.modal {
-  display: none;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid var(--neon-blue);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.nav-btn.active {
+  background: var(--neon-blue);
+  color: var(--space-black);
+}
+
+.section {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  padding: 100px 2rem 2rem;
+  top: 0;
+  left: 0;
+}
+
+.section.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid var(--neon-blue);
+}
+
+.apod-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.apod-container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.date-picker {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+#issMap {
+  height: 600px;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: 2px solid var(--neon-blue);
+}
+
+.iss-info {
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid var(--neon-blue);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 100;
-}
-.modal-content {
-  background: #1a1a2e;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #00f3ff;
-  width: 80%;
-  border-radius: 10px;
-  color: #fff;
-}
-.close {
-  color: #00f3ff;
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* Solar System Explorer Section */
-#solarDisplay {
-  position: relative;
-  height: 500px;
   background: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
-  overflow: hidden;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
 }
 
-/* Responsive Styles */
+
+#solarSystem {
+  background: #000;
+  border: 2px solid var(--neon-blue);
+  border-radius: 10px;
+  margin: 1rem auto;
+}
+
+.planet-label {
+  position: absolute;
+  background: rgba(0,0,0,0.7);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--neon-blue);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.planet-stats p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.planet-stats i {
+  margin-right: 0.5rem;
+  color: var(--neon-blue);
+}
+
+.planet-facts {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--neon-blue);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--neon-blue);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.chart-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
+  .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
   }
-  .nav-center {
-    margin: 10px 0;
+  
+  .nav-btn {
+      padding: 0.6rem 1rem;
+      margin: 0.3rem;
   }
-  .section {
-    width: 95%;
+  
+  #issMap {
+      height: 400px;
   }
 }
