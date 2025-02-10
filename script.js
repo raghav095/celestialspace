@@ -2,7 +2,7 @@
 // Celestial Odyssey – Main JavaScript
 // =====================================
 
-// Replace with your actual NASA API key
+
 const NASA_API_KEY = "AJCQXy383Z7fGIxzN8TwbaJXmSofj0m8qjXSBqdo";
 
 // ============================
